@@ -62,6 +62,12 @@ var operations=require('../database/helpers/Operation');
 operations.mypollsandselectedoption(reqObject,res);
 });
 
+route.post('/totalVotes',(req,res)=>{           //{"p_id":""}
+    var reqObject=req.body;
+var operations=require('../database/helpers/Operation');
+operations.totalVotes(reqObject,res);
+});
+
 //  /editprofile
 
 // /deleteprofile

@@ -169,6 +169,18 @@ userCollection.findById(reqObject.u_id,(err,doc)=>{
     else if(doc){res.send(doc.voted)}
 });
 },
+totalVotes(reqObject,res){
+    //reqObject -->{'p_id':""}
+pollCollection.findOne({_id:reqObject.p_id},(err,doc)=>{
+    if(err){res.send("couldn't find poll...aborted")}
+    else if(doc){
+        var ttl=0;
+        doc.Options.forEach(option => {ttl=ttl+ option.votes});
+   console.log(ttl);
+        res.send({"ttl":ttl});
+    }
+});
+},
 deleteprofile(){},
 editprofile(){},
 editpoll(){},
