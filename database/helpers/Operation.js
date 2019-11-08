@@ -44,7 +44,7 @@ async addPoll(reqObject,res){
      //
 //var pollId=shortuuid.generate();
 //reqObject.PollId=pollId;
-var {question ,options}=reqObject;
+var {question ,options,created_on}=reqObject;
 var USERID=reqObject.user_Id;
 var user=await userCollection.findById(USERID,(err,doc)=>{
     if(err){
@@ -60,6 +60,7 @@ var poll=await pollCollection.create({
     'Question':question,
     'Options': options,
     'author':user,
+    'created_on':created_on
     //'created_on':Date.now()
 },async (err,doc)=>{
     if(err){
