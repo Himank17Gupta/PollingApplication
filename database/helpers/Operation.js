@@ -40,11 +40,11 @@ else{
 
 async addPoll(reqObject,res){ 
      //requestObj will be like :
-     // {question:"",user_Id:"user._id",options:["option1","option2","option3","option4"],createdOn:"Date"}
+     // {question:"",description:'',user_Id:"user._id",options:["option1","option2","option3","option4"],createdOn:"Date"}
      //
 //var pollId=shortuuid.generate();
 //reqObject.PollId=pollId;
-var {question ,options,created_on}=reqObject;
+var {question,description,options,created_on}=reqObject;
 var USERID=reqObject.user_Id;
 var user=await userCollection.findById(USERID,(err,doc)=>{
     if(err){
@@ -58,6 +58,7 @@ console.log(toString(user.userid));
 var poll=await pollCollection.create({
     //'PollId':pollId,
     'Question':question,
+    'Description':description,
     'Options': options,
     'author':user,
     'created_on':created_on

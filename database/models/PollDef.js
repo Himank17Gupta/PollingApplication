@@ -14,6 +14,7 @@ const optSchema = new Schema({
 var PollSchema=new Schema({
    // 'PollId':{type:Number,required:true,unique:true},
     'Question':{type:String,required:true},
+    'Description':{type:String},
     'Options':[optSchema],
     'author':{
         type:mongoose.Schema.Types.ObjectId,
