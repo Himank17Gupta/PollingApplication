@@ -111,7 +111,7 @@ searchpoll(reqObject,res){
 //{"Question":1,"author":1,"_id":0,"Options":0}
 getlistofpolls(reqObject,res){
     //reqObject -->{}
-    pollCollection.find({},{"Options":0},(err,doc)=>{if(err){res.send('error while finding poll list')}else if(doc){res.send(doc);}});
+    pollCollection.find({},(err,doc)=>{if(err){res.send('error while finding poll list')}else if(doc){res.send(doc);}});
 },
 
 async vote(reqObject,res){
@@ -148,6 +148,14 @@ else if(objarr.length==0){
 deletepoll(reqObject,res){
     console.log(reqObject);
 //reqObject --> {u_id:"",poll_id:""}
+//<<<imp> handle on on fe>></imp>
+//check for user deletion authorisation, i.e. if(user.polls has poll or not) 
+//<<<imp> handle on on fe>></imp>
+
+
+//also to remove voted id from voted in users who has voted for that Poll
+
+
 userCollection.updateOne({_id:reqObject.u_id},{$pull:{polls:reqObject.poll_id}},(err,doc)=>{
     if(err){
         res.send("couldn't delete Aborted ");
