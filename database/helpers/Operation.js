@@ -26,7 +26,8 @@ res.send('Invalid User Credentials');
 else if(doc){
     console.log('doc is :',doc);
     if(doc.password==reqObject.password){
-        res.send('Welcome '+reqObject.userid);
+        //res.send('Welcome '+reqObject.userid);
+   res.send(doc);
     }
     else{
         res.send('Invalid User Credentials');
