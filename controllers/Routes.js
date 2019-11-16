@@ -22,7 +22,7 @@ route.post('/login',(req,res)=>{            // reqObject -->{"userid":"","passwo
 });
 
 // /createpoll
-route.post('/createPoll',(req,res)=>{  //reqObject -->{question:"",user_Id:"",options:["option1","option2","option3","option4"],createdOn:"Date"}
+route.post('/createPoll',(req,res)=>{  //reqObject -->{question:"",description:"",user_Id:"",options:["option1","option2","option3","option4"],createdOn:"Date"}
     var reqObject=req.body;
     //console.log('req body is : ',reqObject);
     var operations=require('../database/helpers/Operation');
