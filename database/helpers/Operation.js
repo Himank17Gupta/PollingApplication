@@ -27,9 +27,7 @@ else if(doc){
     console.log('doc is :',doc);
     if(doc.password==reqObject.password){
         //res.send('Welcome '+reqObject.userid);
-        var cdoc={...doc};
-        delete cdoc[password];
-   res.send(cdoc);
+   res.send(doc);
     }
     else{
         res.send('Invalid User Credentials');
