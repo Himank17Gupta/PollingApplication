@@ -68,6 +68,12 @@ var operations=require('../database/helpers/Operation');
 operations.totalVotes(reqObject,res);
 });
 
+route.post('/getAuthor',(req,res)=>{            //reqObject -->{'u_id':""}
+var reqObject=req.body;
+var operations=require('../database/helpers/Operation');
+operations.getAuthor(reqObject,res);
+});
+
 //  /editprofile
 
 // /deleteprofile

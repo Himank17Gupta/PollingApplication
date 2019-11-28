@@ -146,6 +146,20 @@ else if(objarr.length==0){
 }
 },
 
+getAuthor(reqObject,res){
+    
+    userCollection.findById(reqObject.u_id,(err,doc)=>{
+        if(err){
+            console.log('err is :',err);
+        res.send('Invalid User Credentials');
+        }
+        else if(doc){
+            console.log('doc is :',doc);
+           res.send(doc.userid);
+        }
+        });
+
+},
 
 deletepoll(reqObject,res){
     console.log(reqObject);
