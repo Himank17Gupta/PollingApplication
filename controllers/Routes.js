@@ -74,6 +74,12 @@ var operations=require('../database/helpers/Operation');
 operations.getAuthor(reqObject,res);
 });
 
+route.get('/getUserIds',(req,res)=>{            
+var reqObject=req.body;
+var operations=require('../database/helpers/Operation');
+operations.getUserIds(reqObject,res);
+});
+
 //  /editprofile
 
 // /deleteprofile

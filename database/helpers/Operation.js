@@ -160,6 +160,15 @@ getAuthor(reqObject,res){
         });
 
 },
+getUserIds(reqObject,res){
+    userCollection.find({},'_id userid',(err,doc)=>{
+        if(err){res.send(err)}
+        else{
+            res.send(doc);
+        }
+    })
+
+},
 
 deletepoll(reqObject,res){
     console.log(reqObject);
