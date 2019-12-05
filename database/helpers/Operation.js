@@ -1,5 +1,6 @@
 const userCollection=require("../models/Userdef");
 const pollCollection=require("../models/PollDef");
+const jwt=require("../../utils/jwt");
 var shortuuid=require('short-uuid');
 //console.log(shortuuid.generate());
 
@@ -27,7 +28,11 @@ else if(doc){
     console.log('doc is :',doc);
     if(doc.password==reqObject.password){
         //res.send('Welcome '+reqObject.userid);
-   res.send(doc);
+        var token = jwt.generateToken(reqObject.userid);
+        console.log(token);
+        
+        //doc['token']=token;
+   res.send({doc,token});
     }
     else{
         res.send('Invalid User Credentials');

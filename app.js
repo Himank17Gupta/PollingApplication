@@ -14,7 +14,11 @@ app.use(function(req, res, next) {
   });
 
 app.get('/',(req,res)=>{console.log("incoming request is :",req.method,req.body);res.json('Welcome to cool Polling web platform(backend)')});  
-/////routing middleware////s
+/////routing middleware////
+app.use('/',require('./controllers/userRoutes'));
+app.use(require('./utils/jwtmiddleware'));
 app.use('/',require('./controllers/Routes'));
-app.use((req,res)=>{console.log("incoming request is :",req.method,req.body);res.json('404: Invalid request configured')})
+app.use((req,res)=>{console.log("incoming request is :",req.method,req.body);
+res.json('404: Invalid request configured')})
+
 app.listen(port,()=>console.log('Server has been started on PoRT',port));

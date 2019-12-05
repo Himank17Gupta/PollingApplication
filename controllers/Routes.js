@@ -1,10 +1,6 @@
 var express=require('express');
 var route=express.Router();
 
-route.get('/xyz',(req,res)=>{       //testing url string
-    console.log(req.body);
-res.send('welcome bitches again');
-});
 
 route.post('/signup',(req,res)=>{           // reqObject-->{"userid":"","password":"","email":"","contact":""}
     var reqObject=req.body;
@@ -19,6 +15,13 @@ route.post('/login',(req,res)=>{            // reqObject -->{"userid":"","passwo
    // console.log('req body is : ',reqObject);
     var operations=require('../database/helpers/Operation');
     operations.searchUser(reqObject,res);
+});
+
+
+
+route.get('/xyz',(req,res)=>{       //testing url string
+    console.log(req.body);
+res.send('welcome bitches again');
 });
 
 // /createpoll
