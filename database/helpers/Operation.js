@@ -32,7 +32,7 @@ else if(doc){
         console.log(token);
         
         //doc['token']=token;
-   res.send({doc,token});
+   res.send({doc:doc._id,token});
     }
     else{
         res.send('Invalid User Credentials');
